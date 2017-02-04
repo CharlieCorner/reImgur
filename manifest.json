@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "reImgur",
+  "version": "1.0",
+  
+
+  "description": "Automatically transform an Imgur link so you can access directly to the file.",
+  "icons":{
+    "16":"icons/16.png",
+    "48":"icons/48.png",
+    "128":"icons/128.png"
+  },
+
+  "page_action": {
+    "default_icon": "icons/38.png",
+    "default_title": "reImgur - The new automatic way of displaying Imgur images!"
+  },
+  
+  "author": "CCorner",
+  "background": {
+    "page": "bg.html",
+    "persistent": false
+  },
+  "content_scripts":[
+    {
+        "matches": ["*://imgur.com/*"],
+        "exclude_globs" : ["*gallery*", "*i.imgur.com*"],
+        "js": ["reImgur.js"]
+    }
+  ],
+  "permissions": ["tabs", "http://imgur.com/*"]
+}
